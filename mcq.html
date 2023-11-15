@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <title>Multiple Choice Quiz</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      background-color: aliceblue;
+    }
+    form{
+      margin-top:20px;
+    }
+    .quiz-container {
+      width: 80%;
+      margin: 0 auto;
+    }
+    
+    h1 {
+      text-align: center;
+      color: rgb(120, 31, 31);
+    }
+    
+    .question {
+      width:45%;
+      margin-bottom: 20px;
+      background-color: #e9d3b3;
+      padding:20px;
+      color: rgb(120, 31, 31);
+      border-radius: 25px
+    }
+    .question:nth-child(odd){
+      margin-right:5%;
+    }
+    .question p{
+      font-weight: bold;
+    }
+    
+    .answers {
+      margin-bottom: 20px;
+    }
+    .answers label:not(:first-child){
+      border-top:1px solid #e0e0e0;
+    }
+    
+    label {
+      padding:10px 0;
+      display: block;
+      margin-bottom: 10px;
+    }
+    
+    input[type="radio"] {
+      margin-right: 10px;
+    }
+    
+    .submit-btn {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 50px;
+      background-color: rgb(120, 31, 31);
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 20px;
+      cursor: pointer;
+    }
+    
+    .result {
+      font-weight: bold;
+      font-size: 22px;
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #f2f2f2;
+      border-radius: 5px;
+      text-align: center;
+    }
+    .d-flex{
+      display: flex;
+    }
+
+    /* for nav bar */
+
+    .navbar{
+            background-color: rgb(120, 31, 31);
+            border-radius: 30px;
+          }
+    .navbar li{
+    float:left;
+    list-style: none; 
+    margin: 13px 20px;
+}
+.navbar ul{
+            overflow: auto;
+        }
+.navbar li a{
+            padding: 3px 3px;
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+        }
+
+        .search{
+            float: right;
+            color: white;
+            padding: 12px 75px;
+        }
+  .navbar input{
+            border: 2px solid black;
+            border-radius: 14px;
+            padding: 5px 50px;
+            width: 150px;
+        }
+  </style>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact us</a></li>
+                <div class="search">
+                    <input type="text" name="search" id="search" placeholder="Search this website">
+                </div>
+            </ul>
+        </nav>
+    </header>
+    <!-- <div class="search">
+        <input type="text" name="search" id="search" placeholder="Search this website">
+    </div> -->
+
+
+  <div class="quiz-container">
+    <h1>"Navigate Your Career Journey with Us"</h1>
+    <hr>
+    <form id="quiz-form">
+      <div class="d-flex">
+        <div class="question">
+            <p>What subjects do you enjoy the most in school?</p>
+            <div class="answers">
+              <label>
+                <input type="radio" name="q1" value="a">
+                Science
+              </label>
+              <label>
+                <input type="radio" name="q1" value="b">
+                Maths
+              </label>
+              <label>
+                <input type="radio" name="q1" value="c">
+                Humanities
+              </label>
+              <label>
+                <input type="radio" name="q1" value="d">
+                Arts
+              </label>
+            </div>
+          </div>          
+        
+          <div class="question">
+            <p>Which of the following activities do you find most engaging?</p>
+            <div class="answers">
+              <label>
+                <input type="radio" name="q2" value="a">
+                Solving complex problems
+              </label>
+              <label>
+                <input type="radio" name="q2" value="b">
+                Working with numbers and data
+              </label>
+              <label>
+                <input type="radio" name="q2" value="c">
+                Expressing creativity through art or writing
+              </label>
+              <label>
+                <input type="radio" name="q2" value="d">
+                Interacting with people and helping others
+              </label>
+            </div>
+          </div>
+      </div>
+
+      <div class="d-flex">
+        <div class="question">
+            <p>What type of working environment do you prefer?</p>
+            <div class="answers">
+              <label>
+                <input type="radio" name="q3" value="a">
+                Laboratory or research setting
+              </label>
+              <label>
+                <input type="radio" name="q3" value="b">
+                Office with data and computers
+              </label>
+              <label>
+                <input type="radio" name="q3" value="c">
+                Creative studio or workshop
+              </label>
+              <label>
+                <input type="radio" name="q3" value="d">
+                Collaborative team or customer-facing role
+              </label>
+            </div>
+          </div>
+          
+        
+          <div class="question">
+            <p>What are your career goals in the next 5 years?</p>
+            <div class="answers">
+              <label>
+                <input type="radio" name="q4" value="a">
+                Pursuing a career in STEM (Science, Technology, Engineering, Math)
+              </label>
+              <label>
+                <input type="radio" name="q4" value="b">
+                Advancing in a business or finance-related field
+              </label>
+              <label>
+                <input type="radio" name="q4" value="c">
+                Becoming a professional artist or writer
+              </label>
+              <label>
+                <input type="radio" name="q4" value="d">
+                Working in a field that involves social impact or community service
+              </label>
+            </div>
+          </div>
+      </div>
+
+      <div class="d-flex">
+        <div class="question">
+            <p>How do you handle challenges or problems?</p>
+            <div class="answers">
+              <label>
+                <input type="radio" name="q5" value="a">
+                Analyze and find systematic solutions
+              </label>
+              <label>
+                <input type="radio" name="q5" value="b">
+                Use data and research to make decisions
+              </label>
+              <label>
+                <input type="radio" name="q5" value="c">
+                Get creative and think outside the box
+              </label>
+              <label>
+                <input type="radio" name="q5" value="d">
+                Collaborate with others to find solutions
+              </label>
+            </div>
+          </div>
+        
+          <div class="question">
+            <p>Which extracurricular activities interest you the most?</p>
+            <div class="answers">
+              <label>
+                <input type="radio" name="q6" value="a">
+                Science or math clubs
+              </label>
+              <label>
+                <input type="radio" name="q6" value="b">
+                Business or economics clubs
+              </label>
+              <label>
+                <input type="radio" name="q6" value="c">
+                Art, drama, or creative writing clubs
+              </label>
+              <label>
+                <input type="radio" name="q6" value="d">
+                Volunteer or community service activities
+              </label>
+            </div>
+          </div>
+      </div>
+
+      <div class="d-flex">
+        <div class="question">
+            <p>What type of workplace culture do you think would suit you best?</p>
+            <div class="answers">
+              <label>
+                <input type="radio" name="q7" value="a">
+                Innovation-driven and research-oriented
+              </label>
+              <label>
+                <input type="radio" name="q7" value="b">
+                Structured and data-focused
+              </label>
+              <label>
+                <input type="radio" name="q7" value="c">
+                Creative and open-minded
+              </label>
+              <label>
+                <input type="radio" name="q7" value="d">
+                Supportive and community-oriented
+              </label>
+            </div>
+          </div>
+        
+          <div class="question">
+            <p>How do you envision your ideal work-life balance?</p>
+            <div class="answers">
+              <label>
+                <input type="radio" name="q8" value="a">
+                Willing to dedicate long hours for career success
+              </label>
+              <label>
+                <input type="radio" name="q8" value="b">
+                Balanced between work and personal life
+              </label>
+              <label>
+                <input type="radio" name="q8" value="c">
+                Flexible schedule to pursue personal interests
+              </label>
+              <label>
+                <input type="radio" name="q8" value="d">
+                Focused on work that aligns with personal values
+              </label>
+            </div>
+          </div>
+      </div>
+
+      <div class="d-flex">
+        <div class="question">
+            <p>What kind of projects or tasks do you enjoy working on?</p>
+            <div class="answers">
+              <label>
+                <input type="radio" name="q9" value="a">
+                Complex scientific experiments or research
+              </label>
+              <label>
+                <input type="radio" name="q9" value="b">
+                Data analysis and problem-solving
+              </label>
+              <label>
+                <input type="radio" name="q9" value="c">
+                Artistic or creative projects
+              </label>
+              <label>
+                <input type="radio" name="q9" value="d">
+                Collaborative initiatives and community involvement
+              </label>
+            </div>
+          </div>
+        
+          <div class="question">
+            <p>What motivates you the most when considering a career?</p>
+            <div class="answers">
+              <label>
+                <input type="radio" name="q10" value="a">
+                Intellectual challenges and growth
+              </label>
+              <label>
+                <input type="radio" name="q10" value="b">
+                Financial stability and career advancement
+              </label>
+              <label>
+                <input type="radio" name="q10" value="c">
+                Self-expression and creative fulfillment
+              </label>
+              <label>
+                <input type="radio" name="q10" value="d">
+                Making a positive impact on society
+              </label>
+            </div>
+          </div>
+      </div>
+      <button type="submit" class="submit-btn">Submit</button>
+    </form>
+    
+    <div class="result" style="text-align: center;color: rgb(120, 31, 31);" id="result"></div>
+    </div>
+
+    <!-- <div class="quiz-container">
+        <a href="details.html"><h1 class="know-more" style="display: none;">Know More</h1></a>
+     -->
+    <!-- Inside the first page's content -->
+`   <button class="submit-btn" id="knowMoreButton">Know More</button>
+
+
+  <script>
+    
+document.addEventListener('DOMContentLoaded', function () {
+  const quizForm = document.getElementById('quiz-form');
+  const resultDiv = document.getElementById('result');
+  const knowMoreHeader = document.querySelector('h1.know-more');
+
+// Event listener for the "Know More" button click
+document.getElementById('knowMoreButton').addEventListener('click', function () {
+  // Retrieve the career recommendation from sessionStorage
+  const careerRecommendation = sessionStorage.getItem('careerRecommendation');
+  
+  if (careerRecommendation) {
+    // Redirect to the new page (details.html)
+    window.location.href = 'details.html';
+  } else {
+    // If career recommendation is not found, provide an alert or handle it as needed
+    alert('Career recommendation not found.'); // You can customize this message
+  }
+});
+
+
+  quizForm.addEventListener('submit', e => {
+    e.preventDefault();
+
+    const userAnswers = {
+      q1: quizForm.q1.value,
+      q2: quizForm.q2.value,
+      q3: quizForm.q3.value,
+      q4: quizForm.q4.value,
+      q5: quizForm.q5.value,
+      q6: quizForm.q6.value,
+      q7: quizForm.q7.value,
+      q8: quizForm.q8.value,
+      q9: quizForm.q9.value,
+      q10: quizForm.q10.value
+    };
+
+    if (Object.values(userAnswers).every(answer => answer !== "")) {
+      const careerRecommendation = recommendCareer(userAnswers);
+      resultDiv.innerHTML = `Based on your answers, we recommend a career in ${careerRecommendation}.`;
+
+      // Store the career recommendation in sessionStorage
+      sessionStorage.setItem('careerRecommendation', careerRecommendation);
+
+      // Show the "Know More" h1 tag
+      knowMoreHeader.style.display = 'block';
+    } else {
+      resultDiv.innerHTML = "Please answer all questions before submitting.";
+    }
+  });
+
+  function recommendCareer(userAnswers) {
+    const categoryScores = {
+      'Science and Technology': 0,
+      'Business and Finance': 0,
+      'Humanities and Arts': 0,
+      'Social Sciences and Community Service': 0,
+      'Problem Solving and Data Analysis': 0,
+      'Creative Expression': 0,
+      'Collaborative and People-Oriented Roles': 0,
+      'Innovation and Research': 0,
+      'Community Involvement and Social Impact': 0,
+      'Work-Life Balance and Values-Driven Careers': 0
+    };
+
+    // Assign scores based on user answers
+    if (userAnswers.q1 === 'a' || userAnswers.q2 === 'a' || userAnswers.q5 === 'a') {
+      categoryScores['Science and Technology']++;
+    }
+
+    if (userAnswers.q1 === 'b' || userAnswers.q2 === 'b' || userAnswers.q5 === 'b') {
+      categoryScores['Problem Solving and Data Analysis']++;
+    }
+
+    if (userAnswers.q1 === 'c' || userAnswers.q2 === 'c' || userAnswers.q5 === 'c') {
+      categoryScores['Creative Expression']++;
+    }
+
+    if (userAnswers.q1 === 'd' || userAnswers.q2 === 'd' || userAnswers.q5 === 'd') {
+      categoryScores['Collaborative and People-Oriented Roles']++;
+    }
+
+    // Identify the category with the highest score
+    let maxScore = 0;
+    let recommendedCategory = '';
+    for (const category in categoryScores) {
+      if (categoryScores[category] > maxScore) {
+        maxScore = categoryScores[category];
+        recommendedCategory = category;
+      }
+    }
+
+    // You can customize the career recommendations based on the categories as needed
+    const careerRecommendations = {
+      'Science and Technology': 'Science and Technology',
+      'Business and Finance': 'Business and Finance',
+      'Humanities and Arts': 'Humanities and Arts',
+      'Social Sciences and Community Service': 'Social Sciences and Community Service',
+      'Problem Solving and Data Analysis': 'Problem Solving and Data Analysis',
+      'Creative Expression': 'Creative Expression',
+      'Collaborative and People-Oriented Roles': 'Collaborative and People-Oriented Roles',
+      'Innovation and Research': 'Innovation and Research',
+      'Community Involvement and Social Impact': 'Community Involvement and Social Impact',
+      'Work-Life Balance and Values-Driven Careers': 'Work-Life Balance and Values-Driven Careers'
+    };
+
+    return careerRecommendations[recommendedCategory];
+  }
+});
+
+
+  </script>
+  
+  
+  <!-- Same HTML structure as before -->
+
+<!-- <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const quizForm = document.getElementById('quiz-form');
+    const resultDiv = document.getElementById('result');
+    const knowMoreButton = document.getElementById('knowMoreButton');
+
+    knowMoreButton.style.display = 'none'; // Hide the "Know More" button initially
+
+    quizForm.addEventListener('submit', e => {
+      e.preventDefault();
+
+      const userAnswers = {
+        q1: quizForm.q1.value,
+        q2: quizForm.q2.value,
+        q3: quizForm.q3.value,
+        q4: quizForm.q4.value,
+        q5: quizForm.q5.value,
+        q6: quizForm.q6.value,
+        q7: quizForm.q7.value,
+        q8: quizForm.q8.value,
+        q9: quizForm.q9.value,
+        q10: quizForm.q10.value
+      };
+
+      if (Object.values(userAnswers).every(answer => answer !== "")) {
+        const assistanceRecommendation = recommendAssistance(userAnswers);
+        resultDiv.innerHTML = `Based on your answers, we recommend ${assistanceRecommendation}.`;
+
+        knowMoreButton.style.display = 'block'; // Show the "Know More" button
+
+        // Store the assistance recommendation in localStorage
+        localStorage.setItem('assistanceRecommendation', assistanceRecommendation);
+      } else {
+        resultDiv.innerHTML = "Please answer all questions before submitting.";
+      }
+    });
+
+    function recommendAssistance(userAnswers) {
+      const assistanceOptions = {
+        'Jumpstart Service': 0,
+        'Towing Service': 0,
+        'Flat Tire Assistance': 0,
+        'Engine Diagnostic Service': 0,
+        'Fuel Delivery Service': 0,
+        'Lockout Service': 0,
+        'On-site Repair Service': 0
+      };
+
+      // Assign scores based on user answers
+      if (userAnswers.q1 === 'a' || userAnswers.q2 === 'a' || userAnswers.q5 === 'a') {
+        assistanceOptions['Engine Diagnostic Service']++;
+      }
+
+      if (userAnswers.q1 === 'b' || userAnswers.q2 === 'b' || userAnswers.q5 === 'b') {
+        assistanceOptions['Flat Tire Assistance']++;
+      }
+
+      if (userAnswers.q1 === 'c' || userAnswers.q2 === 'c' || userAnswers.q5 === 'c') {
+        assistanceOptions['Jumpstart Service']++;
+      }
+
+      if (userAnswers.q1 === 'd' || userAnswers.q2 === 'd' || userAnswers.q5 === 'd') {
+        assistanceOptions['Towing Service']++;
+      }
+
+      // Identify the option with the highest score
+      let maxScore = 0;
+      let recommendedAssistance = '';
+      for (const option in assistanceOptions) {
+        if (assistanceOptions[option] > maxScore) {
+          maxScore = assistanceOptions[option];
+          recommendedAssistance = option;
+        }
+      }
+
+      return recommendedAssistance;
+    }
+  });
+</script> -->
